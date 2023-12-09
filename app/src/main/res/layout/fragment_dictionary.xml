@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/white"
+tools:context=".ui.dictionaryfragment.DictionaryFragment">
+
+<com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/hijau_tua"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="IConnect Dictionary"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/backButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="8dp"
+            android:onClick="onBackButtonClick"
+            android:padding="8dp"
+            android:src="@drawable/arrow_back" />
+    </androidx.appcompat.widget.Toolbar>
+</com.google.android.material.appbar.AppBarLayout>
+
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/searchTextInputLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="78dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:boxCornerRadiusBottomEnd="44dp"
+    app:boxCornerRadiusBottomStart="44dp"
+    app:boxCornerRadiusTopEnd="44dp"
+    app:boxCornerRadiusTopStart="44dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_search"
+        android:hint="Search"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingStart="17dp"
+        android:paddingEnd="16dp"
+        android:textColorHint="@android:color/black"
+        android:textSize="16sp" />
+
+</com.google.android.material.textfield.TextInputLayout>
+
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/videoRecyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/searchTextInputLayout"
+    android:layout_marginTop="8dp"
+    android:background="@android:color/white"
+    android:clipToPadding="false"
+    android:overScrollMode="never" />
+
+</RelativeLayout>

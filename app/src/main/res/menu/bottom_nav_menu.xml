@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/baseline_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navigation_articel"
+        android:icon="@drawable/baseline_newspape"
+        android:title="Article" />
+    <item
+        android:id="@+id/navigation_dictionary"
+        android:icon="@drawable/baseline_book_24"
+        android:title="Dictionary" />
+
+    <item
+        android:id="@+id/navigation_translator"
+        android:icon="@drawable/baseline_transcribe_24"
+        android:title="Translate" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/baseline_person"
+        android:title="Profile" />
+</menu>
