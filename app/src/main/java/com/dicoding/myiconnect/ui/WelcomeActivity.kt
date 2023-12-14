@@ -1,40 +1,47 @@
 package com.dicoding.myiconnect.ui
 
-import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
-import android.widget.Toast
+import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.dicoding.myiconnect.databinding.ActivityWelcomeBinding
-import com.dicoding.myiconnect.ui.login.LoginActivity
+import com.dicoding.myiconnect.R
+import com.dicoding.myiconnect.ui.home.MainActivity
 
 class WelcomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityWelcomeBinding
+
+    private val SPLASH_TIME_OUT: Long = 2000
+    private val MAX_RETRY: Int = 3
+    private var retryCount: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWelcomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_welcome)
 
-        val textViewAppName: TextView = binding.textViewAppName
+        navigateToMainActivityDelayed()
+    }
 
-        val scaleXAnimator = ObjectAnimator.ofFloat(textViewAppName, "scaleX", 1.2f, 1f)
-        scaleXAnimator.duration = 1900
-        scaleXAnimator.repeatCount = ObjectAnimator.INFINITE
-        scaleXAnimator.repeatMode = ObjectAnimator.REVERSE
+    private fun navigateToMainActivityDelayed() {
+        Handler().postDelayed({
+            startMainActivity()
+        }, SPLASH_TIME_OUT)
+    }
 
-        val scaleYAnimator = ObjectAnimator.ofFloat(textViewAppName, "scaleY", 1.2f, 1f)
-        scaleYAnimator.duration = 1900
-        scaleYAnimator.repeatCount = ObjectAnimator.INFINITE
-        scaleYAnimator.repeatMode = ObjectAnimator.REVERSE
+    private fun startMainActivity() {
+        try {
+            val homeIntent = Intent(this@WelcomeActivity, MainActivity::class.java)
+            startActivity(homeIntent)
+            finish()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            handleNavigationError()
+        }
+    }
 
-        scaleXAnimator.start()
-        scaleYAnimator.start()
-
-        binding.btnGetStarted.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-            Toast.makeText(this, "Selamat Datang", Toast.LENGTH_SHORT).show()
+    private fun handleNavigationError() {
+        if (retryCount < MAX_RETRY) {
+            retryCount++
+            startMainActivity()
+        } else {
         }
     }
 }
