@@ -1,4 +1,5 @@
 package com.dicoding.myiconnect.ui.homefragment
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,11 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
 import com.dicoding.myiconnect.R
 import com.dicoding.myiconnect.databinding.FragmentHomeBinding
 import com.dicoding.myiconnect.ui.adapter.ProdukAdapter
-import com.dicoding.myiconnect.ui.adapter.SliderAdapter
+import com.dicoding.myiconnect.ui.dictionaryfragment.DictionaryFragment
+import com.dicoding.myiconnect.ui.home.MainActivity
 import com.dicoding.myiconnect.ui.model.ModelProduk
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -20,6 +21,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var rvBaju: RecyclerView
+    private lateinit var dictionaryFragment: DictionaryFragment
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,9 +33,19 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        dictionaryFragment = DictionaryFragment()
+
+        binding.checkDictionaryButton.setOnClickListener {
+            switchToDictionaryFragment()
+        }
+
+        binding.checkTranslateButton.setOnClickListener {
+            switchToTranslateFragment()
+        }
+
         initRecyclerView()
         showUserInfo()
-        startAnimations()
     }
 
     private fun initRecyclerView() {
@@ -62,10 +74,14 @@ class HomeFragment : Fragment() {
         binding.edtName.text = username
     }
 
-    private fun startAnimations() {
-        val slideAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_card_animation)
-        binding.cardDictionary.startAnimation(slideAnimation)
-        binding.cardTranslate.startAnimation(slideAnimation)
+    private fun switchToDictionaryFragment() {
+        val mainActivity = activity as? MainActivity
+        mainActivity?.switchToDictionaryFragment()
+    }
+
+    private fun switchToTranslateFragment() {
+        val mainActivity = activity as? MainActivity
+        mainActivity?.switchToTranslateFragment()
     }
 
     override fun onDestroyView() {
