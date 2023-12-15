@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/home_fragment_container">
@@ -8,9 +10,6 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bgiconnect">
@@ -141,28 +140,6 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.25" />
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="119dp"
-                        android:layout_height="25dp"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="12dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="15dp"
-                        app:cardElevation="0dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textView6">
-
-                        <TextView
-                            android:id="@+id/textview7"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="@string/try_it_now"
-                            android:textColor="@color/black"
-                            android:textSize="13sp"
-                            android:textStyle="bold"/>
-                    </androidx.cardview.widget.CardView>
-
                     <TextView
                         android:id="@+id/textView6"
                         android:layout_width="213dp"
@@ -175,6 +152,20 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/checkTranslateButton"
+                        android:layout_width="118dp"
+                        android:layout_height="33dp"
+                        android:layout_marginStart="50dp"
+                        android:backgroundTint="@color/white"
+                        android:text="Try Now"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="44dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView6" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -209,20 +200,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <Button
-                        android:id="@+id/checkDictionaryButton"
-                        android:layout_width="118dp"
-                        android:layout_height="33dp"
-                        android:layout_marginStart="50dp"
-                        android:backgroundTint="@color/white"
-                        android:text="Dictionary"
-                        android:textColor="@color/black"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        app:cornerRadius="15dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textView4" />
-
                     <TextView
                         android:id="@+id/textView4"
                         android:layout_width="243dp"
@@ -235,6 +212,20 @@
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/checkDictionaryButton"
+                        android:layout_width="118dp"
+                        android:layout_height="33dp"
+                        android:layout_marginStart="50dp"
+                        android:backgroundTint="@color/white"
+                        android:text="Dictionary"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="44dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView4" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
