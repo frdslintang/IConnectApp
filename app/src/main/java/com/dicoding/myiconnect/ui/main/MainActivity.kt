@@ -37,10 +37,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         setUpBottomNav()
+        showFragment(fragmentHome) 
     }
 
 
+    fun switchToDictionaryFragment() {
+        showFragment(fragmentDictionary)
+        bottomNavigationView.selectedItemId = R.id.navigation_dictionary
+    }
+
+    fun switchToTranslateFragment() {
+        showFragment(fragmentTranslate)
+        bottomNavigationView.selectedItemId = R.id.navigation_translator
+    }
+
     private fun setUpBottomNav() {
+
         fm.beginTransaction().add(R.id.container, fragmentHome).commit()
         fm.beginTransaction().add(R.id.container, fragmentArticel, "2").hide(fragmentArticel).commit()
         fm.beginTransaction().add(R.id.container, fragmentDictionary, "3").hide(fragmentDictionary).commit()
@@ -50,39 +62,29 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    if (active != fragmentHome) {
-                        showFragment(fragmentHome)
-                        active = fragmentHome
-                        return@setOnNavigationItemSelectedListener true
-                    }
+                    showFragment(fragmentHome)
+                    active = fragmentHome
+                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_articel -> {
-                    if (active != fragmentArticel) {
-                        showFragment(fragmentArticel)
-                        active = fragmentArticel
-                        return@setOnNavigationItemSelectedListener true
-                    }
+                    showFragment(fragmentArticel)
+                    active = fragmentArticel
+                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_dictionary -> {
-                    if (active != fragmentDictionary) {
-                        showFragment(fragmentDictionary)
-                        active = fragmentDictionary
-                        return@setOnNavigationItemSelectedListener true
-                    }
+                    showFragment(fragmentDictionary)
+                    active = fragmentDictionary
+                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_translator -> {
-                    if (active != fragmentTranslate) {
-                        showFragment(fragmentTranslate)
-                        active = fragmentTranslate
-                        return@setOnNavigationItemSelectedListener true
-                    }
+                    showFragment(fragmentTranslate)
+                    active = fragmentTranslate
+                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_profile -> {
-                    if (active != fragmentProfile) {
-                        showFragment(fragmentProfile)
-                        active = fragmentProfile
-                        return@setOnNavigationItemSelectedListener true
-                    }
+                    showFragment(fragmentProfile)
+                    active = fragmentProfile
+                    return@setOnNavigationItemSelectedListener true
                 }
             }
             false
@@ -90,7 +92,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showFragment(fragment: Fragment) {
-        fm.beginTransaction().hide(active).show(fragment).commit()
-        active = fragment
+        fm.beginTransaction()
+            .hide(fragmentHome)
+            .hide(fragmentArticel)
+            .hide(fragmentDictionary)
+            .hide(fragmentTranslate)
+            .hide(fragmentProfile)
+            .show(fragment)
+            .commit()
+
+        when (fragment) {
+            is HomeFragment -> {
+                active = fragmentHome
+            }
+            is ArticelFragment -> {
+                active = fragmentArticel
+            }
+            is DictionaryFragment -> {
+                active = fragmentDictionary
+            }
+            is TranslateFragment -> {
+                active = fragmentTranslate
+            }
+            is ProfileFragment -> {
+                active = fragmentProfile
+            }
+        }
     }
+
+
 }
+
