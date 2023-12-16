@@ -1,6 +1,5 @@
 package com.dicoding.myiconnect.ui.login
 
-import android.animation.ObjectAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,44 +28,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val textView1: TextView = binding.textview1
-        val textView2: TextView = binding.textview2
-
-        val scaleXAnimator = ObjectAnimator.ofFloat(textView1, "scaleX", 1.2f, 1f)
-        val scaleXAnimator2 = ObjectAnimator.ofFloat(textView2, "scaleX", 1.2f, 1f)
-        scaleXAnimator.duration = 2000
-        scaleXAnimator.repeatCount = ObjectAnimator.INFINITE
-        scaleXAnimator.repeatMode = ObjectAnimator.REVERSE
-
-        scaleXAnimator2.duration = 2000
-        scaleXAnimator2.repeatCount = ObjectAnimator.INFINITE
-        scaleXAnimator2.repeatMode = ObjectAnimator.REVERSE
-
-        val scaleYAnimator = ObjectAnimator.ofFloat(textView1, "scaleY", 1.2f, 1f)
-        val scaleYAnimator2 = ObjectAnimator.ofFloat(textView2, "scaleY", 1.2f, 1f)
-        scaleYAnimator.duration = 2000
-        scaleYAnimator.repeatCount = ObjectAnimator.INFINITE
-        scaleYAnimator.repeatMode = ObjectAnimator.REVERSE
-
-        scaleYAnimator2.duration = 2000
-        scaleYAnimator2.repeatCount = ObjectAnimator.INFINITE
-        scaleYAnimator2.repeatMode = ObjectAnimator.REVERSE
-
-        scaleXAnimator.start()
-        scaleXAnimator2.start()
-        scaleYAnimator.start()
-        scaleYAnimator2.start()
-
-
-
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        if (currentUser != null) {
-            // Pengguna sudah masuk, lanjutkan ke MainActivity
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
 
         auth = FirebaseAuth.getInstance()
         binding.tvToRegister.setOnClickListener {
