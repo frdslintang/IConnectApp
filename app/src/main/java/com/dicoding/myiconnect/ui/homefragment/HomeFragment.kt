@@ -1,5 +1,6 @@
 package com.dicoding.myiconnect.ui.homefragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.dicoding.myiconnect.databinding.FragmentHomeBinding
 import com.dicoding.myiconnect.ui.adapter.ProdukAdapter
 import com.dicoding.myiconnect.ui.dictionaryfragment.DictionaryFragment
 import com.dicoding.myiconnect.ui.home.MainActivity
+import com.dicoding.myiconnect.ui.login.LoginActivity
 import com.dicoding.myiconnect.ui.model.ModelProduk
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -33,7 +35,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        checkUserLoginStatus()
         dictionaryFragment = DictionaryFragment()
 
         binding.checkDictionaryButton.setOnClickListener {
@@ -48,6 +50,17 @@ class HomeFragment : Fragment() {
         showUserInfo()
     }
 
+    private fun checkUserLoginStatus() {
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+
+        if (currentUser == null) {
+            // Jika pengguna belum login, arahkan kembali ke layar login
+            val intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+            activity?.finish() // Tutup activity saat ini
+        }
+    }
     private fun initRecyclerView() {
         rvBaju = binding.rvBaju
         rvBaju.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
@@ -88,4 +101,5 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
