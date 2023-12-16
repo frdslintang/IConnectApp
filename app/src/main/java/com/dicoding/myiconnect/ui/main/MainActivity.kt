@@ -37,11 +37,9 @@ class MainActivity : AppCompatActivity() {
 
         setUpBottomNav()
 
-
-        // Pemulihan fragment terakhir saat aplikasi dibuka kembali
-        savedInstanceState?.let {
-            activeFragmentId = it.getInt("lastActiveFragment", R.id.navigation_home)
-        }
+        // Set fragment default ke HomeFragment
+        switchFragment(fragmentHome)
+        bottomNavigationView.selectedItemId = R.id.navigation_home
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -51,7 +49,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        restoreLastActiveFragment()
         checkUserLoggedOut()
     }
 
@@ -64,35 +61,6 @@ class MainActivity : AppCompatActivity() {
             intent.removeExtra("userLoggedOut") // Hapus informasi userLoggedOut agar tidak ter-trigger di onResume selanjutnya
         }
     }
-    private fun restoreLastActiveFragment() {
-        val sharedPreferences: SharedPreferences = getSharedPreferences("FragmentPrefs", MODE_PRIVATE)
-        val lastActiveFragmentId = sharedPreferences.getInt("lastActiveFragment", R.id.navigation_home)
-
-        val intentFragmentId = intent.getIntExtra("fragmentToLoad", -1)
-        activeFragmentId = if (intentFragmentId != -1) {
-            intent.removeExtra("fragmentToLoad")
-            intentFragmentId
-        } else {
-            lastActiveFragmentId
-        }
-
-        // Jika lastActiveFragment adalah ProfileFragment, set ke fragment default ke HomeFragment
-        if (lastActiveFragmentId == R.id.navigation_profile) {
-            activeFragmentId = R.id.navigation_home
-        }
-
-        // Switch ke fragment yang sesuai dengan ID yang disimpan
-        when (activeFragmentId) {
-            R.id.navigation_home -> switchFragment(fragmentHome)
-            R.id.navigation_articel -> switchFragment(fragmentArticel)
-            R.id.navigation_dictionary -> switchFragment(fragmentDictionary)
-            R.id.navigation_translator -> switchFragment(fragmentTranslate)
-            R.id.navigation_profile -> switchFragment(fragmentProfile)
-        }
-
-        bottomNavigationView.selectedItemId = activeFragmentId
-    }
-
 
     private fun switchFragment(fragment: Fragment) {
         if (active != fragment) {
