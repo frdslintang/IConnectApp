@@ -1,14 +1,13 @@
 package com.dicoding.myiconnect.ui.home
 
-
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.dicoding.myiconnect.R
 import com.dicoding.myiconnect.databinding.ActivityMainBinding
 import com.dicoding.myiconnect.ui.articelfragment.ArticelFragment
-import com.dicoding.myiconnect.ui.articelfragment.DetailArticelFragment
 import com.dicoding.myiconnect.ui.dictionaryfragment.DictionaryFragment
 import com.dicoding.myiconnect.ui.homefragment.HomeFragment
 import com.dicoding.myiconnect.ui.profilefragment.ProfileFragment
@@ -18,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     private val fragmentHome: Fragment = HomeFragment()
     private val fragmentArticel: Fragment = ArticelFragment()
@@ -26,64 +26,90 @@ class MainActivity : AppCompatActivity() {
     private val fragmentProfile: Fragment = ProfileFragment()
 
     private val fm: FragmentManager = supportFragmentManager
-    private var active: Fragment = fragmentHome
+    private lateinit var active: Fragment
 
-    private lateinit var bottomNavigationView: BottomNavigationView
+    private var activeFragmentId: Int = R.id.navigation_home // Default fragment ID
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
         setUpBottomNav()
-        showFragment(fragmentHome) 
+
+        // Pemulihan fragment terakhir saat aplikasi dibuka kembali
+        savedInstanceState?.let {
+            activeFragmentId = it.getInt("lastActiveFragment", R.id.navigation_home)
+        }
     }
 
-
-    fun switchToDictionaryFragment() {
-        showFragment(fragmentDictionary)
-        bottomNavigationView.selectedItemId = R.id.navigation_dictionary
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("lastActiveFragment", activeFragmentId)
     }
 
-    fun switchToTranslateFragment() {
-        showFragment(fragmentTranslate)
-        bottomNavigationView.selectedItemId = R.id.navigation_translator
+    override fun onResume() {
+        super.onResume()
+        restoreLastActiveFragment()
+    }
+
+    private fun restoreLastActiveFragment() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences("FragmentPrefs", MODE_PRIVATE)
+        val lastActiveFragmentId = sharedPreferences.getInt("lastActiveFragment", R.id.navigation_home)
+
+        // Switch ke fragment yang sesuai dengan ID yang disimpan
+        when (lastActiveFragmentId) {
+            R.id.navigation_home -> switchFragment(fragmentHome)
+            R.id.navigation_articel -> switchFragment(fragmentArticel)
+            R.id.navigation_dictionary -> switchFragment(fragmentDictionary)
+            R.id.navigation_translator -> switchFragment(fragmentTranslate)
+            R.id.navigation_profile -> switchFragment(fragmentProfile)
+        }
+
+        bottomNavigationView.selectedItemId = lastActiveFragmentId
+    }
+
+    private fun switchFragment(fragment: Fragment) {
+        if (active != fragment) {
+            fm.beginTransaction()
+                .hide(active)
+                .show(fragment)
+                .commit()
+            active = fragment
+        }
     }
 
     private fun setUpBottomNav() {
-
         fm.beginTransaction().add(R.id.container, fragmentHome).commit()
-        fm.beginTransaction().add(R.id.container, fragmentArticel, "2").hide(fragmentArticel).commit()
-        fm.beginTransaction().add(R.id.container, fragmentDictionary, "3").hide(fragmentDictionary).commit()
-        fm.beginTransaction().add(R.id.container, fragmentProfile, "5").hide(fragmentProfile).commit()
+        fm.beginTransaction().add(R.id.container, fragmentArticel).hide(fragmentArticel).commit()
+        fm.beginTransaction().add(R.id.container, fragmentDictionary).hide(fragmentDictionary).commit()
+        fm.beginTransaction().add(R.id.container, fragmentTranslate).hide(fragmentTranslate).commit()
+        fm.beginTransaction().add(R.id.container, fragmentProfile).hide(fragmentProfile).commit()
+
+        active = fragmentHome
 
         bottomNavigationView = binding.navView
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            activeFragmentId = item.itemId // Simpan ID fragment yang baru aktif
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    showFragment(fragmentHome)
-                    active = fragmentHome
+                    switchFragment(fragmentHome)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_articel -> {
-                    showFragment(fragmentArticel)
-                    active = fragmentArticel
+                    switchFragment(fragmentArticel)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_dictionary -> {
-                    showFragment(fragmentDictionary)
-                    active = fragmentDictionary
+                    switchFragment(fragmentDictionary)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_translator -> {
-                    showFragment(fragmentTranslate)
-                    active = fragmentTranslate
+                    switchFragment(fragmentTranslate)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_profile -> {
-                    showFragment(fragmentProfile)
-                    active = fragmentProfile
+                    switchFragment(fragmentProfile)
                     return@setOnNavigationItemSelectedListener true
                 }
             }
@@ -91,35 +117,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showFragment(fragment: Fragment) {
-        fm.beginTransaction()
-            .hide(fragmentHome)
-            .hide(fragmentArticel)
-            .hide(fragmentDictionary)
-            .hide(fragmentTranslate)
-            .hide(fragmentProfile)
-            .show(fragment)
-            .commit()
-
-        when (fragment) {
-            is HomeFragment -> {
-                active = fragmentHome
-            }
-            is ArticelFragment -> {
-                active = fragmentArticel
-            }
-            is DictionaryFragment -> {
-                active = fragmentDictionary
-            }
-            is TranslateFragment -> {
-                active = fragmentTranslate
-            }
-            is ProfileFragment -> {
-                active = fragmentProfile
-            }
-        }
+    fun switchToDictionaryFragment() {
+        switchFragment(fragmentDictionary)
+        bottomNavigationView.selectedItemId = R.id.navigation_dictionary
     }
 
+    fun switchToTranslateFragment() {
+        switchFragment(fragmentTranslate)
+        bottomNavigationView.selectedItemId = R.id.navigation_translator
+    }
 
+    override fun onPause() {
+        super.onPause()
+        val sharedPreferences: SharedPreferences = getSharedPreferences("FragmentPrefs", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putInt("lastActiveFragment", activeFragmentId)
+        editor.apply()
+    }
 }
 
