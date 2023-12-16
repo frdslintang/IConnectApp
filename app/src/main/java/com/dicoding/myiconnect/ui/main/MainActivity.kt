@@ -48,26 +48,6 @@ class MainActivity : AppCompatActivity() {
         outState.putInt("lastActiveFragment", activeFragmentId)
     }
 
-    override fun onResume() {
-        super.onResume()
-        restoreLastActiveFragment()
-    }
-
-    private fun restoreLastActiveFragment() {
-        val sharedPreferences: SharedPreferences = getSharedPreferences("FragmentPrefs", MODE_PRIVATE)
-        val lastActiveFragmentId = sharedPreferences.getInt("lastActiveFragment", R.id.navigation_home)
-
-        // Switch ke fragment yang sesuai dengan ID yang disimpan
-        when (lastActiveFragmentId) {
-            R.id.navigation_home -> switchFragment(fragmentHome)
-            R.id.navigation_articel -> switchFragment(fragmentArticel)
-            R.id.navigation_dictionary -> switchFragment(fragmentDictionary)
-            R.id.navigation_translator -> switchFragment(fragmentTranslate)
-            R.id.navigation_profile -> switchFragment(fragmentProfile)
-        }
-
-        bottomNavigationView.selectedItemId = lastActiveFragmentId
-    }
 
     private fun switchFragment(fragment: Fragment) {
         if (active != fragment) {
