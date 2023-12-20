@@ -15,13 +15,6 @@ We hope that our application will empower users to connect with and support indi
 - Features articles on bisindo reading that can be shared on various platforms 
 - Edit profile according to your preference
 
-## Application Screenshots
-<div>
-  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
-  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/home.jpg">
-</div>
-
-<br><br>
 ---
 ## Video Demonstration
 
@@ -51,7 +44,15 @@ We hope that our application will empower users to connect with and support indi
 - Android Studio Electric Eel | 2022.1.1 Patch 2
 - Postman
 - Figma
+---
 
+## Application Screenshots
+<div>
+  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
+  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/home.jpg">
+</div>
+
+<br><br>
 
 ---
 ## Instalation
