@@ -17,25 +17,31 @@ We hope that our application will empower users to connect with and support indi
 
 ## Application Screenshoot
 
-# Video Demonstration
+## Video Demonstration
 
 [Link To App Demonstration](https://example.com)
 
 
 ## Dependencies
-Android ktx
-Lifecycle & Livedata
-Material Design 3
-Coroutines
-TFlite
-Datastore
-CameraX
-Retrofit 2
-Glide
-OkHttp 3
-ExoPlayer
-Firebase
 
+- Android KTX
+- Lifecycle & LiveData
+- Material Design 3
+- Coroutines
+- TFlite
+- Datastore
+- CameraX
+- Retrofit 2
+- Glide
+- OkHttp 3
+- ExoPlayer
+- Firebase
+
+## Tools
+- Android Studio Electric Eel | 2022.1.1 Patch 2
+- Postman
+- Figma
+  
 ## Instalation
 1. Clone this Repository
 2. After that you need to place this URL list inside the local.properties project file.
@@ -45,9 +51,6 @@ Firebase
 https://storage.googleapis.com/my-key-store/keystore.jks
 https://storage.googleapis.com/my-key-store/private_key.pepk
 
-##Tools
-Android Studio Electric Eel | 2022.1.1 Patch 2
-Postman
-Figma
+
 
 
