@@ -15,12 +15,10 @@ We hope that our application will empower users to connect with and support indi
 - Features articles on bisindo reading that can be shared on various platforms 
 - Edit profile according to your preference
 
----
 ## Video Demonstration
 
 [Link To App Demonstration](https://example.com)
 
----
 
 ## Dependencies
 
@@ -37,8 +35,6 @@ We hope that our application will empower users to connect with and support indi
 - ExoPlayer
 - Firebase
 
----
-
 ## Tools
 
 - Android Studio Electric Eel | 2022.1.1 Patch 2
@@ -46,7 +42,6 @@ We hope that our application will empower users to connect with and support indi
 - Figma
 ---
 
----
 ## Instalation
 ```properties
 1. Clone this Repository
@@ -60,13 +55,15 @@ We hope that our application will empower users to connect with and support indi
   <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
   <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/signup.jpg">
 </div>
-<br>
-<div style="clear:both">
+<br><br>
+
+<div>
   <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/login.jpg">
   <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/home.jpg">
 </div>
-<br>
-<div style="clear:both">
+<br><br>
+
+<div>
   <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/artikel.jpg">
   <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/dictionary.jpg">
 </div>
