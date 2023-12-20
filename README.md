@@ -16,12 +16,20 @@ We hope that our application will empower users to connect with and support indi
 - Edit profile according to your preference
 
 ## Application Screenshoot
+<div>
+  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
+  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/signup.jpg">
+</div>
 
-<img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
-<img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/signup.jpg">
-<img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/login.jpg">
-<img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/home.jpg">
+<div style="clear:both">
+  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/login.jpg">
+  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/home.jpg">
+</div>
 
+<div style="clear:both">
+  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/artikel.jpg">
+  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/dictionary.jpg">
+</div>
 
 
 ## Video Demonstration
