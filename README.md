@@ -21,14 +21,8 @@ We hope that our application will empower users to connect with and support indi
 
 [Link To App Demonstration](https://example.com)
 
-## Instalation
-```bash
-git clone https://github.com/frdslintang/IConnectApp.git
 
-```properties
-[Link To Key](https://example.com)
-
-##Dependencies
+## Dependencies
 Android ktx
 Lifecycle & Livedata
 Material Design 3
@@ -38,9 +32,18 @@ Datastore
 CameraX
 Retrofit 2
 Glide
-Ok Http 3
+OkHttp 3
 ExoPlayer
 Firebase
+
+## Instalation
+1. Clone this Repository
+2. After that you need to place this URL list inside the local.properties project file.
+```properties
+[Link To Key](https://example.com)
+'''properties
+https://storage.googleapis.com/my-key-store/keystore.jks
+https://storage.googleapis.com/my-key-store/private_key.pepk
 
 ##Tools
 Android Studio Electric Eel | 2022.1.1 Patch 2
