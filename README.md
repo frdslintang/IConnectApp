@@ -46,14 +46,6 @@ We hope that our application will empower users to connect with and support indi
 - Figma
 ---
 
-## Application Screenshots
-<div>
-  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
-  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/home.jpg">
-</div>
-
-<br><br>
-
 ---
 ## Instalation
 ```properties
@@ -61,6 +53,25 @@ We hope that our application will empower users to connect with and support indi
 2. After that you need to place this URL list inside the local.properties project file : 
       https://storage.googleapis.com/my-key-store/keystore.jks
       https://storage.googleapis.com/my-key-store/private_key.pepk
+```
+
+## Application Screenshots
+<div>
+  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
+  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/signup.jpg">
+</div>
+
+<div style="clear:both">
+  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/login.jpg">
+  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/home.jpg">
+</div>
+
+<div style="clear:both">
+  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/artikel.jpg">
+  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/dictionary.jpg">
+</div>
+
+
 
 
 
