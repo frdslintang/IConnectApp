@@ -20,8 +20,7 @@ We hope that our application will empower users to connect with and support indi
 <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
 <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/home.jpg">
 
-
-
+<br><br>
 ## Video Demonstration
 
 [Link To App Demonstration](https://example.com)
