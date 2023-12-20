@@ -29,5 +29,29 @@ We hope that our application will empower users to connect with and support indi
 [Link To App Demonstration](https://example.com)
 
 ## Instalation
+```bash
+git clone https://github.com/yourusername/repository-name.git
+
+-After that you need to place this URL list inside the local.properties project file.
+[Link To Key](https://example.com)
+
+##Dependencies
+Android ktx
+Lifecycle & Livedata
+Material Design 3
+Coroutines
+TFlite
+Datastore
+CameraX
+Retrofit 2
+Glide
+Ok Http 3
+ExoPlayer
+Firebase
+
+##Tools
+Android Studio Electric Eel | 2022.1.1 Patch 2
+Postman
+Figma
 
 
