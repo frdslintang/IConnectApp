@@ -15,7 +15,8 @@ We hope that our application will empower users to connect with and support indi
 - Features articles on bisindo reading that can be shared on various platforms 
 - Edit profile according to your preference
 
-## Application Screenshoot
+## Application Screenshots
+
 <div>
   <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
   <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/signup.jpg">
@@ -32,11 +33,13 @@ We hope that our application will empower users to connect with and support indi
 </div>
 
 ---
+
 ## Video Demonstration
 
 [Link To App Demonstration](https://example.com)
 
 ---
+
 ## Dependencies
 
 - Android KTX
@@ -53,10 +56,13 @@ We hope that our application will empower users to connect with and support indi
 - Firebase
 
 ---
+
 ## Tools
+
 - Android Studio Electric Eel | 2022.1.1 Patch 2
 - Postman
 - Figma
+
 
 ---
 ## Instalation
