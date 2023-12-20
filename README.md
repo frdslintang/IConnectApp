@@ -51,10 +51,8 @@ We hope that our application will empower users to connect with and support indi
 ```
 
 ## Application Screenshots
-<div>
-  <img align="left" width="300" src="https://storage.googleapis.com/iconnect-ui/splash-screen.jpg">
-  <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/signup.jpg">
-</div>
+![Example SplashScreen](https://storage.googleapis.com/iconnect-ui/splash-screen.jpg)
+![Example Home](https://storage.googleapis.com/iconnect-ui/dictionary.jpg)
 
 
 
