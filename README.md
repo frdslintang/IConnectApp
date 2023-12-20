@@ -31,12 +31,12 @@ We hope that our application will empower users to connect with and support indi
   <img align="right" width="300" src="https://storage.googleapis.com/iconnect-ui/dictionary.jpg">
 </div>
 
-
+---
 ## Video Demonstration
 
 [Link To App Demonstration](https://example.com)
 
-
+---
 ## Dependencies
 
 - Android KTX
@@ -52,11 +52,13 @@ We hope that our application will empower users to connect with and support indi
 - ExoPlayer
 - Firebase
 
+---
 ## Tools
 - Android Studio Electric Eel | 2022.1.1 Patch 2
 - Postman
 - Figma
-  
+
+---
 ## Instalation
 ```properties
 1. Clone this Repository
