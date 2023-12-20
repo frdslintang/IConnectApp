@@ -43,13 +43,11 @@ We hope that our application will empower users to connect with and support indi
 - Figma
   
 ## Instalation
-1. Clone this Repository
-2. After that you need to place this URL list inside the local.properties project file.
 ```properties
-[Link To Key](https://example.com)
-'''properties
-https://storage.googleapis.com/my-key-store/keystore.jks
-https://storage.googleapis.com/my-key-store/private_key.pepk
+1. Clone this Repository
+2. After that you need to place this URL list inside the local.properties project file : 
+      https://storage.googleapis.com/my-key-store/keystore.jks
+      https://storage.googleapis.com/my-key-store/private_key.pepk
 
 
 
