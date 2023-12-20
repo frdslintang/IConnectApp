@@ -1,13 +1,6 @@
-# MyIConnect
-* About
-Capstone Project for Bangkit Academy 2023 Batch 2
-Aplikasi untuk deteksi bahasa isyarat BISINDO dan media belajar bahasa isyarat
-Dilengkapi dengan fitur kamus dan kamera pendeteksi gerakan bahasa isyarat
-
 # IConnect App Documentation
 
 ## About
-
 Our capstone team presents IConnect (Isyarat Connection)  an innovative Android application designed to bridge communication gaps by translating sign language (BISINDO) into a universally accessible format. This groundbreaking solution strives to cultivate an inclusive environment, enabling seamless communication for people of diverse backgrounds.
 
 We hope that our application will empower users to connect with and support individuals with hearing impairments.
@@ -30,9 +23,9 @@ We hope that our application will empower users to connect with and support indi
 
 ## Instalation
 ```bash
-git clone https://github.com/yourusername/repository-name.git
+git clone https://github.com/frdslintang/IConnectApp.git
 
--After that you need to place this URL list inside the local.properties project file.
+```properties
 [Link To Key](https://example.com)
 
 ##Dependencies
